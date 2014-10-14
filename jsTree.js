@@ -12,7 +12,7 @@ var $tree= (function(){
 	tree.prototype = {
 		insert: function(val) {
 			insertIntoTree.apply(this,[this.root,val]);
-
+			return this;
 		}
 	}
 
