@@ -6,8 +6,19 @@
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="jsTree.js"></script>
 	<script type="text/javascript" src="jsHeap.js"></script>
+	<script type="text/javascript" src="jsLinkedList.js"></script>
 </head>
 <body>
 	<div id="main">heres</div>
+	<a href="#" class="a">aaaa</a>
+	<a href="#aaa" class="a">bbbb</a>
 </body>
+<script>
+	document.querySelectorAll("a")[1].addEventListener("click", function(e){
+		e.preventDefault();
+		console.log("msg")
+		//return false;
+	})
+	
+</script>
 </html>

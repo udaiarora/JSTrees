@@ -2,7 +2,7 @@ var $tree= (function(){
 	node = function(v) {
 		this.left=null;
 		this.right=null;
-		this.value= v==undefined?null:v;
+		this.value= typeof v==undefined?null:v;
 	}
 
 	tree = function(v) {
@@ -13,7 +13,12 @@ var $tree= (function(){
 		insert: function(val) {
 			insertIntoTree.apply(this,[this.root,val]);
 			return this;
+		},
+
+		height: function() {
+			return ht(this.root);
 		}
+
 	}
 
 	//Helper Functions
@@ -22,7 +27,7 @@ var $tree= (function(){
 			this.root= new node(val);
 			return;
 		}
-		else if(val<root) {
+		else if(val<root.value) {
 			if(root.left==null) {
 				root.left=new node(val);
 				return;
@@ -38,6 +43,20 @@ var $tree= (function(){
 		}
 
 	}
+
+	function ht(root) {
+			if(root==null) {
+				return 0;
+			}
+			else {
+				var leftHeight=ht(root.left);
+				var rightHeight=ht(root.right);
+				if(leftHeight>rightHeight)
+					return 1+leftHeight;
+				return 1+rightHeight;
+			}
+		}
+
 	
 	
 	return {
